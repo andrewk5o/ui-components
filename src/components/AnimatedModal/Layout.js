@@ -1,11 +1,11 @@
 import React from "react"
 import { Container, Content, ContentAnimation, Overlay, OverlayAnimation } from "./styles"
+import { ANIMATION_TIME } from "./constants"
 
 const Layout = ({children, opened, onClose}) => {
   const overlayRef = React.useRef()
   const contentRef = React.useRef()
   const [animationIn, setAnimationIn] = React.useState(false)
-  const ANIMATION_TIME = 300
 
   React.useEffect(() => {
     setAnimationIn(opened)

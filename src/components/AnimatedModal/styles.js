@@ -1,36 +1,51 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { CSSTransition } from "react-transition-group"
 
+const unfoldIn = keyframes`
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+`
+
+const unfoldOut = keyframes`
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+`
+
 const OverlayAnimation = styled(CSSTransition)`
-  &.enter {
-    opacity: 0;
-  }
-
   &.enter-active {
-    transition: opacity 300ms ease-out;
-    opacity: 1;
-  }
-
-  &.exit {
-    opacity: 1;
+    animation: ${unfoldIn} 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   }
 
   &.exit-active {
-    opacity: 0;
-    transition: opacity 300ms ease-out;
+    animation: ${unfoldOut} 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
   }
 `
 
 const ContentAnimation = styled(CSSTransition)`
   &.enter {
     opacity: 0;
-    transform: scale(0.01);
+    transform: scale(0.1);
   }
 
   &.enter-active {
-    transition: opacity 100ms ease-out 200ms, transform 100ms ease-out 200ms;
     opacity: 1;
     transform: scale(1);
+    transition: opacity 300ms, transform 300ms;
+    transition-delay: 500ms;
   }
 
   &.exit {
@@ -40,8 +55,8 @@ const ContentAnimation = styled(CSSTransition)`
 
   &.exit-active {
     opacity: 0;
-    transform: scale(0.01);
-    transition: opacity 300ms ease-out, transform 300ms ease-out;
+    transform: scale(0.1);
+    transition: opacity 300ms, transform 300ms;
   }
 `
 
