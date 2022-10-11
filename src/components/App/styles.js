@@ -13,7 +13,4 @@ const ModalContent = styled.h2`
   align-items: center;
 `
 
-export {
-  Button,
-  ModalContent
-}
+export { Button, ModalContent }

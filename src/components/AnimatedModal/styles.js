@@ -100,10 +100,4 @@ const Overlay = styled.div`
   cursor: pointer;
 `
 
-export {
-  Container,
-  Content,
-  Overlay,
-  OverlayAnimation,
-  ContentAnimation
-}
+export { Container, Content, Overlay, OverlayAnimation, ContentAnimation }

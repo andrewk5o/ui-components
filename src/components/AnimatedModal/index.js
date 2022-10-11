@@ -1,13 +1,12 @@
-import React from "react"
-import { useMount } from "../../hooks/useMount"
-import { Portal } from "../Portal/Portal"
+import { useMount } from "@hooks/useMount"
+import { Portal } from "@components/Portal"
 import { Layout } from "./Layout"
 import { ANIMATION_TIME } from "./constants"
 
-const AnimatedModal = ({opened, onClose, children}) => {
+const AnimatedModal = ({ opened, onClose, children }) => {
   const mounted = useMount({
-    opened, 
-    unmountDelay: ANIMATION_TIME
+    opened,
+    unmountDelay: ANIMATION_TIME,
   })
 
   if (!mounted) {

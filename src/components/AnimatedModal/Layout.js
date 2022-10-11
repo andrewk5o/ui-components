@@ -1,8 +1,14 @@
 import React from "react"
-import { Container, Content, ContentAnimation, Overlay, OverlayAnimation } from "./styles"
+import {
+  Container,
+  Content,
+  ContentAnimation,
+  Overlay,
+  OverlayAnimation,
+} from "./styles"
 import { ANIMATION_TIME } from "./constants"
 
-const Layout = ({children, opened, onClose}) => {
+const Layout = ({ children, opened, onClose }) => {
   const overlayRef = React.useRef()
   const contentRef = React.useRef()
   const [animationIn, setAnimationIn] = React.useState(false)
@@ -11,18 +17,18 @@ const Layout = ({children, opened, onClose}) => {
     setAnimationIn(opened)
   }, [opened])
 
-  return (     
+  return (
     <Container>
-      <OverlayAnimation 
+      <OverlayAnimation
         in={animationIn}
         nodeRef={overlayRef}
         timeout={ANIMATION_TIME}
         mountOnEnter
         unmountOnExit
       >
-        <Overlay ref={overlayRef} onClick={onClose}/>
+        <Overlay ref={overlayRef} onClick={onClose} />
       </OverlayAnimation>
-      <ContentAnimation 
+      <ContentAnimation
         in={animationIn}
         nodeRef={contentRef}
         timeout={ANIMATION_TIME}
@@ -34,7 +40,5 @@ const Layout = ({children, opened, onClose}) => {
     </Container>
   )
 }
- 
-export {
-  Layout
-}
+
+export { Layout }

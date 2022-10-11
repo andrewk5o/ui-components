@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-const Portal = ({children}) => {
+const Portal = ({ children }) => {
   const [container] = React.useState(() => document.createElement("div"))
 
   React.useEffect(() => {

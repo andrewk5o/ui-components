@@ -1,4 +1,4 @@
-import { AnimatedModal } from "./AnimatedModal/AnimatedModal"
+import { AnimatedModal } from "@components/AnimatedModal"
 import React from "react"
 import { Button, ModalContent } from "./styles"
 
@@ -13,5 +13,5 @@ const App = () => {
     </>
   )
 }
- 
+
 export { App }

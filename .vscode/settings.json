@@ -1,0 +1,31 @@
+{
+  "typescript.suggest.paths": false,
+  "javascript.suggest.paths": false,
+  "path-intellisense.extensionOnImport": false,
+  "path-intellisense.autoTriggerNextSuggestion": false,
+  "eslint.format.enable": true,
+  "path-intellisense.mappings": {
+    "@components": "${workspaceFolder}/src/components",
+    "@hooks": "${workspaceFolder}/src/hooks"
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    }
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[html]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  },
+  "[json]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    }
+  }
+}

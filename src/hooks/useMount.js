@@ -1,6 +1,6 @@
 import React from "react"
 
-export const useMount = ({opened, unmountDelay}) => {
+export const useMount = ({ opened, unmountDelay }) => {
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {
