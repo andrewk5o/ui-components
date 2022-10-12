@@ -2,9 +2,9 @@ module.exports = (api) => {
   api.cache(true)
   return {
     presets: [
-      "@babel/env",
+      "@babel/preset-env",
       [
-        "@babel/react",
+        "@babel/preset-react",
         {
           runtime: "automatic",
         },
@@ -17,6 +17,9 @@ module.exports = (api) => {
             "babel-plugin-styled-components",
             {
               displayName: true,
+              minify: false,
+              transpileTemplateLiterals: false,
+              meaninglessFileNames: ["index", "styles"],
             },
           ],
         ],
@@ -26,8 +29,7 @@ module.exports = (api) => {
           [
             "babel-plugin-styled-components",
             {
-              minify: true,
-              transpileTemplateLiterals: true,
+              displayName: false,
               pure: true,
             },
           ],

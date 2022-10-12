@@ -6,5 +6,7 @@
       "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"]
     }
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
