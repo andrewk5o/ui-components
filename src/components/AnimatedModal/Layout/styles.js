@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components"
 import { CSSTransition } from "react-transition-group"
+import styled, { keyframes } from "styled-components"
 
 const unfoldIn = keyframes`
   0% {
@@ -100,4 +100,4 @@ const Overlay = styled.div`
   cursor: pointer;
 `
 
-export { Container, Content, Overlay, OverlayAnimation, ContentAnimation }
+export { Container, Content, ContentAnimation, Overlay, OverlayAnimation }

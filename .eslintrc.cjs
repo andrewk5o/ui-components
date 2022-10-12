@@ -12,7 +12,13 @@ module.exports = {
     browser: true,
     node: true,
   },
-  plugins: ["@typescript-eslint", "unused-imports", "prettier"],
+  plugins: [
+    "@typescript-eslint",
+    "unused-imports",
+    "simple-import-sort",
+    "import",
+    "prettier",
+  ],
   parserOptions: {
     sourceType: "module",
   },
@@ -28,6 +34,12 @@ module.exports = {
       { blankLine: "always", prev: "*", next: "multiline-const" },
       { blankLine: "always", prev: "multiline-const", next: "*" },
     ],
+
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
 
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",

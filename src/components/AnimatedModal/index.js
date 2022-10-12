@@ -1,7 +1,8 @@
-import { useMount } from "@hooks/useMount"
 import { Portal } from "@components/Portal"
-import { Layout } from "./Layout"
+import { useMount } from "@hooks/useMount"
+
 import { ANIMATION_TIME } from "./constants"
+import { Layout } from "./Layout"
 
 const AnimatedModal = ({ opened, onClose, children }) => {
   const mounted = useMount({

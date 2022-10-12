@@ -1,4 +1,6 @@
 import React from "react"
+
+import { ANIMATION_TIME } from "../constants"
 import {
   Container,
   Content,
@@ -6,7 +8,6 @@ import {
   Overlay,
   OverlayAnimation,
 } from "./styles"
-import { ANIMATION_TIME } from "./constants"
 
 const Layout = ({ children, opened, onClose }) => {
   const overlayRef = React.useRef()
