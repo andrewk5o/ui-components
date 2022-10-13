@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    "jsx": "react",
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "target": "es6",
     "paths": {
       "@hooks/*": ["hooks/*"],
       "@components/*": ["components/*"]

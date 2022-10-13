@@ -1,6 +1,11 @@
-import React from "react"
+import * as React from "react"
 
-export const useMount = ({ opened, unmountDelay }) => {
+type useMountArgs = {
+  opened: boolean
+  unmountDelay: number
+}
+
+const useMount = ({ opened, unmountDelay }: useMountArgs) => {
   const [mounted, setMounted] = React.useState(false)
 
   React.useEffect(() => {
@@ -15,3 +20,5 @@ export const useMount = ({ opened, unmountDelay }) => {
 
   return mounted
 }
+
+export { useMount }

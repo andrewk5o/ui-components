@@ -1,9 +1,9 @@
 import { AnimatedModal } from "@components/AnimatedModal"
-import React from "react"
+import * as React from "react"
 
 import { Button, ModalContent } from "./styles"
 
-const App = () => {
+const App: React.FC = () => {
   const [opened, setOpened] = React.useState(false)
   return (
     <>

@@ -1,9 +1,8 @@
 module.exports = {
+  root: true,
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    // "plugin:@typescript-eslint/recommended",
-    // "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
   ],
   env: {
@@ -12,17 +11,10 @@ module.exports = {
     browser: true,
     node: true,
   },
-  plugins: [
-    "@typescript-eslint",
-    "unused-imports",
-    "simple-import-sort",
-    "import",
-    "prettier",
-  ],
+  plugins: ["unused-imports", "simple-import-sort", "import", "prettier"],
   parserOptions: {
     sourceType: "module",
   },
-  parser: "@typescript-eslint/parser",
   rules: {
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
@@ -44,7 +36,7 @@ module.exports = {
     "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
-      "warn",
+      "error",
       {
         vars: "all",
         varsIgnorePattern: "^_",
@@ -54,9 +46,43 @@ module.exports = {
     ],
   },
   ignorePatterns: ["dist/*"],
-  settings: {
-    react: {
-      version: "detect",
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      parser: "@typescript-eslint/parser",
+      extends: [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended",
+      ],
+      plugins: [
+        "@typescript-eslint",
+        "unused-imports",
+        "simple-import-sort",
+        "import",
+        "react",
+        "react-hooks",
+        "prettier",
+      ],
+      rules: {
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        "react-hooks/exhaustive-deps": "off",
+      },
+      parserOptions: {
+        sourceType: "module",
+        tsconfigRootDir: __dirname,
+        project: ["./tsconfig.json"],
+      },
+      settings: {
+        react: {
+          version: "detect",
+          pragma: "React",
+        },
+      },
     },
-  },
+  ],
 }

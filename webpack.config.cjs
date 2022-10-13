@@ -1,10 +1,11 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 
 module.exports = (_, argv) => {
   process.env.NODE_ENV = argv.mode || "development"
   return {
-    entry: path.join(__dirname, "src", "index.js"),
+    entry: path.join(__dirname, "src", "index.tsx"),
     output: {
       path: path.join(__dirname, "dist"),
       filename: "index.bundle.js",
@@ -13,13 +14,14 @@ module.exports = (_, argv) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(ts|tsx)$/,
           exclude: /node_modules/,
           use: ["babel-loader"],
         },
       ],
     },
     resolve: {
+      extensions: [".ts", ".tsx", ".js"],
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
         "@components": path.resolve(__dirname, "src/components"),
@@ -31,6 +33,7 @@ module.exports = (_, argv) => {
       new HtmlWebpackPlugin({
         template: path.join(__dirname, "static", "index.html"),
       }),
+      new ForkTsCheckerWebpackPlugin(),
     ],
   }
 }

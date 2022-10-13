@@ -1,7 +1,11 @@
-import React from "react"
-import ReactDOM from "react-dom"
+import * as React from "react"
+import * as ReactDOM from "react-dom"
 
-const Portal = ({ children }) => {
+type PortalProps = {
+  children: React.ReactNode
+}
+
+const Portal: React.FC<PortalProps> = ({ children }) => {
   const [container] = React.useState(() => document.createElement("div"))
 
   React.useEffect(() => {

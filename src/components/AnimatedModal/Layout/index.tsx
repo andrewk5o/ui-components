@@ -1,4 +1,4 @@
-import React from "react"
+import * as React from "react"
 
 import { ANIMATION_TIME } from "../constants"
 import {
@@ -9,7 +9,13 @@ import {
   OverlayAnimation,
 } from "./styles"
 
-const Layout = ({ children, opened, onClose }) => {
+type LayoutProps = {
+  opened: boolean
+  onClose: () => void
+  children: React.ReactNode
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, opened, onClose }) => {
   const overlayRef = React.useRef()
   const contentRef = React.useRef()
   const [animationIn, setAnimationIn] = React.useState(false)
