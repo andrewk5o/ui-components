@@ -7,7 +7,6 @@ type useMountArgs = {
 
 const useMount = ({ opened, unmountDelay }: useMountArgs) => {
   const [mounted, setMounted] = React.useState(false)
-
   React.useEffect(() => {
     if (opened && !mounted) {
       setMounted(true)

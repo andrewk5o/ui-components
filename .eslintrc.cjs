@@ -2,6 +2,8 @@ module.exports = {
   root: true,
   extends: [
     "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
   ],
@@ -16,6 +18,8 @@ module.exports = {
     sourceType: "module",
   },
   rules: {
+    "no-undef": "error",
+    "no-unused-vars": "off",
     "prettier/prettier": "error",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
@@ -30,10 +34,9 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/first": "error",
+    "import/named": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
-
-    "no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "error",
@@ -68,9 +71,11 @@ module.exports = {
         "prettier",
       ],
       rules: {
+        "no-undef": "error",
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
         "react-hooks/exhaustive-deps": "off",
+        "import/no-unresolved": "error",
       },
       parserOptions: {
         sourceType: "module",
@@ -81,6 +86,11 @@ module.exports = {
         react: {
           version: "detect",
           pragma: "React",
+        },
+        "import/resolver": {
+          typescript: {
+            alwaysTryTypes: true,
+          },
         },
       },
     },
