@@ -5,18 +5,14 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:react/recommended",
+    "plugin:storybook/recommended",
     "plugin:prettier/recommended",
   ],
   env: {
     commonjs: true,
-    es2022: true,
-    browser: true,
     node: true,
   },
   plugins: ["unused-imports", "simple-import-sort", "import", "prettier"],
-  parserOptions: {
-    sourceType: "module",
-  },
   rules: {
     "no-undef": "error",
     "no-unused-vars": "off",
@@ -25,12 +21,27 @@ module.exports = {
     "react/prop-types": "off",
     "padding-line-between-statements": [
       "error",
-      { blankLine: "always", prev: "*", next: "function" },
-      { blankLine: "always", prev: "function", next: "*" },
-      { blankLine: "always", prev: "*", next: "multiline-const" },
-      { blankLine: "always", prev: "multiline-const", next: "*" },
+      {
+        blankLine: "always",
+        prev: "*",
+        next: "function",
+      },
+      {
+        blankLine: "always",
+        prev: "function",
+        next: "*",
+      },
+      {
+        blankLine: "always",
+        prev: "*",
+        next: "multiline-const",
+      },
+      {
+        blankLine: "always",
+        prev: "multiline-const",
+        next: "*",
+      },
     ],
-
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "import/first": "error",
@@ -53,6 +64,10 @@ module.exports = {
     {
       files: ["*.ts", "*.tsx"],
       parser: "@typescript-eslint/parser",
+      env: {
+        es2022: true,
+        browser: true,
+      },
       extends: [
         "eslint:recommended",
         "plugin:react/recommended",
@@ -75,6 +90,7 @@ module.exports = {
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
         "react-hooks/exhaustive-deps": "off",
+        "@typescript-eslint/await-thenable": "off",
         "import/no-unresolved": "error",
       },
       parserOptions: {
